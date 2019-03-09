@@ -20,6 +20,20 @@ UIViewController.swizzle🌪.viewDidAppear { (object, animated: Bool, sup) -> in
 }
 ```
 
+#### multiple arguments and return types
+
+```swift
+class Greeter: NSObject {
+    @objc dynamic func greet(first: String, last: String) -> String {
+        return "Hello \(first) \(last)"
+    }
+}
+
+Greeter.swizzle🌪.greetWithFirstlast { (object, arguments: (first: NSString, last: NSString), sup) -> NSString in
+    return sup.invoke(arguments.first, arguments.last)
+}
+```
+
 ## Author
 
 Oliver Letterer, oliver.letterer@gmail.com
