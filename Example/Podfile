@@ -1,6 +1,0 @@
-use_frameworks!
-target 'stormborn_Tests' do
-  pod 'stormborn', :path => '../'
-  
-  
-end

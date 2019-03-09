@@ -1,0 +1,16 @@
+PODS:
+  - stormborn (0.1.0)
+
+DEPENDENCIES:
+  - stormborn (from `.`)
+
+EXTERNAL SOURCES:
+  stormborn:
+    :path: "."
+
+SPEC CHECKSUMS:
+  stormborn: ca3b24ca7fca77e763025bb91534a04a8f8a9e99
+
+PODFILE CHECKSUM: b658aab481e6e04a06ae2210a2036971df213c1b
+
+COCOAPODS: 1.6.0
