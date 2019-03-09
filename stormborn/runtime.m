@@ -18,10 +18,6 @@ _Nullable Method swizzle_lookupMember(Class klass, NSString *member, NSInteger a
     for (unsigned int i = 0; i < count; i++) {
         Method method = methods[i];
         
-        if (method_getName(method) == @selector(viewDidAppear:)) {
-            NSLog(@"Here");
-        }
-        
         NSMethodSignature *methodSignature = [NSMethodSignature signatureWithObjCTypes:method_getTypeEncoding(method)];
         NSString *memberName = [NSStringFromSelector(method_getName(method)) stringByReplacingOccurrencesOfString:@":" withString:@""];
         
@@ -89,6 +85,8 @@ void swizzle_hookMember(Class klass, NSString *member, NSInteger arguments, BOOL
                 void *returnValue = NULL;
                 [newInvocation getReturnValue:&returnValue];
                 [invocation setReturnValue:&returnValue];
+                
+                [invocation retainArguments];
             }
             
             return;

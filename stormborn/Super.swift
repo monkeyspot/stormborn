@@ -8,6 +8,18 @@
 
 import Foundation
 
+private func extractReturn<T>(_ invocation: SWZInvocation) -> T {
+    if T.self is AnyClass {
+        var value: Unmanaged<AnyObject>? = nil
+        invocation.getReturnValue(&value)
+        return value!.takeUnretainedValue() as! T
+    } else {
+        var value: T? = nil
+        invocation.getReturnValue(&value)
+        return value!
+    }
+}
+
 public struct Super<R> {
     private let invocation: SWZInvocation
     
@@ -21,10 +33,7 @@ public struct Super<R> {
         if R.self == Void.self {
             return () as! R
         } else {
-            var result: R? = nil
-            invocation.getReturnValue(&result)
-            
-            return result!
+            return extractReturn(invocation) as R
         }
     }
 }
@@ -46,10 +55,7 @@ public struct Super1<R, A1> {
         if R.self == Void.self {
             return () as! R
         } else {
-            var result: R? = nil
-            invocation.getReturnValue(&result)
-            
-            return result!
+            return extractReturn(invocation) as R
         }
     }
 }
@@ -72,10 +78,7 @@ public struct Super2<R, A1, A2> {
         if R.self == Void.self {
             return () as! R
         } else {
-            var result: R? = nil
-            invocation.getReturnValue(&result)
-            
-            return result!
+            return extractReturn(invocation) as R
         }
     }
 }
@@ -99,10 +102,7 @@ public struct Super3<R, A1, A2, A3> {
         if R.self == Void.self {
             return () as! R
         } else {
-            var result: R? = nil
-            invocation.getReturnValue(&result)
-            
-            return result!
+            return extractReturn(invocation) as R
         }
     }
 }
@@ -127,10 +127,7 @@ public struct Super4<R, A1, A2, A3, A4> {
         if R.self == Void.self {
             return () as! R
         } else {
-            var result: R? = nil
-            invocation.getReturnValue(&result)
-            
-            return result!
+            return extractReturn(invocation) as R
         }
     }
 }
@@ -156,10 +153,7 @@ public struct Super5<R, A1, A2, A3, A4, A5> {
         if R.self == Void.self {
             return () as! R
         } else {
-            var result: R? = nil
-            invocation.getReturnValue(&result)
-            
-            return result!
+            return extractReturn(invocation) as R
         }
     }
 }
@@ -186,10 +180,7 @@ public struct Super6<R, A1, A2, A3, A4, A5, A6> {
         if R.self == Void.self {
             return () as! R
         } else {
-            var result: R? = nil
-            invocation.getReturnValue(&result)
-            
-            return result!
+            return extractReturn(invocation) as R
         }
     }
 }
@@ -217,10 +208,7 @@ public struct Super7<R, A1, A2, A3, A4, A5, A6, A7> {
         if R.self == Void.self {
             return () as! R
         } else {
-            var result: R? = nil
-            invocation.getReturnValue(&result)
-            
-            return result!
+            return extractReturn(invocation) as R
         }
     }
 }
@@ -249,10 +237,7 @@ public struct Super8<R, A1, A2, A3, A4, A5, A6, A7, A8> {
         if R.self == Void.self {
             return () as! R
         } else {
-            var result: R? = nil
-            invocation.getReturnValue(&result)
-            
-            return result!
+            return extractReturn(invocation) as R
         }
     }
 }
@@ -282,10 +267,7 @@ public struct Super9<R, A1, A2, A3, A4, A5, A6, A7, A8, A9> {
         if R.self == Void.self {
             return () as! R
         } else {
-            var result: R? = nil
-            invocation.getReturnValue(&result)
-            
-            return result!
+            return extractReturn(invocation) as R
         }
     }
 }
@@ -316,10 +298,7 @@ public struct Super10<R, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10> {
         if R.self == Void.self {
             return () as! R
         } else {
-            var result: R? = nil
-            invocation.getReturnValue(&result)
-            
-            return result!
+            return extractReturn(invocation) as R
         }
     }
 }
@@ -353,10 +332,7 @@ public struct Super11<R, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11> {
         if R.self == Void.self {
             return () as! R
         } else {
-            var result: R? = nil
-            invocation.getReturnValue(&result)
-            
-            return result!
+            return extractReturn(invocation) as R
         }
     }
 }
@@ -391,10 +367,7 @@ public struct Super12<R, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12> {
         if R.self == Void.self {
             return () as! R
         } else {
-            var result: R? = nil
-            invocation.getReturnValue(&result)
-            
-            return result!
+            return extractReturn(invocation) as R
         }
     }
 }
@@ -430,10 +403,7 @@ public struct Super13<R, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13>
         if R.self == Void.self {
             return () as! R
         } else {
-            var result: R? = nil
-            invocation.getReturnValue(&result)
-            
-            return result!
+            return extractReturn(invocation) as R
         }
     }
 }
@@ -470,10 +440,7 @@ public struct Super14<R, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13,
         if R.self == Void.self {
             return () as! R
         } else {
-            var result: R? = nil
-            invocation.getReturnValue(&result)
-            
-            return result!
+            return extractReturn(invocation) as R
         }
     }
 }
@@ -511,10 +478,7 @@ public struct Super15<R, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13,
         if R.self == Void.self {
             return () as! R
         } else {
-            var result: R? = nil
-            invocation.getReturnValue(&result)
-            
-            return result!
+            return extractReturn(invocation) as R
         }
     }
 }
@@ -553,10 +517,7 @@ public struct Super16<R, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13,
         if R.self == Void.self {
             return () as! R
         } else {
-            var result: R? = nil
-            invocation.getReturnValue(&result)
-            
-            return result!
+            return extractReturn(invocation) as R
         }
     }
 }
@@ -596,10 +557,7 @@ public struct Super17<R, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13,
         if R.self == Void.self {
             return () as! R
         } else {
-            var result: R? = nil
-            invocation.getReturnValue(&result)
-            
-            return result!
+            return extractReturn(invocation) as R
         }
     }
 }
@@ -640,10 +598,7 @@ public struct Super18<R, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13,
         if R.self == Void.self {
             return () as! R
         } else {
-            var result: R? = nil
-            invocation.getReturnValue(&result)
-            
-            return result!
+            return extractReturn(invocation) as R
         }
     }
 }
@@ -685,10 +640,7 @@ public struct Super19<R, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13,
         if R.self == Void.self {
             return () as! R
         } else {
-            var result: R? = nil
-            invocation.getReturnValue(&result)
-            
-            return result!
+            return extractReturn(invocation) as R
         }
     }
 }
@@ -731,10 +683,7 @@ public struct Super20<R, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13,
         if R.self == Void.self {
             return () as! R
         } else {
-            var result: R? = nil
-            invocation.getReturnValue(&result)
-            
-            return result!
+            return extractReturn(invocation) as R
         }
     }
 }
